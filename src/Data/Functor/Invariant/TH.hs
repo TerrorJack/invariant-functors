@@ -865,7 +865,7 @@ mkSimpleLam :: (Exp -> Q Exp) -> Q Exp
 mkSimpleLam lam = do
   n <- newName "n"
   body <- lam (VarE n)
-  return $ LamE [VarP n] body
+  lamE [varP n] (pure body)
 
 -- "Con a1 a2 a3 -> fold [x1 a1, x2 a2, x3 a3]"
 --
